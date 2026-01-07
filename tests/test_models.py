@@ -152,6 +152,22 @@ class TestPost:
         assert len(post.instruments) == 1
         assert post.instruments[0].code == "BTC"
 
+    def test_post_without_optional_fields(self):
+        """Test creating a post without optional fields (matching real API responses)."""
+        post = Post(
+            id=1,
+            slug="test-post",
+            title="Test Post",
+            published_at=datetime.now(),
+            created_at=datetime.now(),
+            kind="news",
+        )
+        assert post.id == 1
+        assert post.description is None
+        assert post.source is None
+        assert post.original_url is None
+        assert post.url is None
+
     def test_post_panic_score_validation(self):
         """Test panic score validation (0-100)."""
         post = Post(

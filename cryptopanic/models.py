@@ -60,13 +60,13 @@ class Post(BaseModel):
     id: int = Field(..., description="Unique identifier for the post")
     slug: str = Field(..., description="URL-friendly short title")
     title: str = Field(..., description="Full title of the post")
-    description: str = Field(..., description="Short summary or excerpt")
+    description: str | None = Field(None, description="Short summary or excerpt")
     published_at: datetime = Field(..., description="When the post was published (ISO 8601)")
     created_at: datetime = Field(..., description="When the post was created in the system")
     kind: str = Field(..., description="Content type: 'news', 'media', 'blog', 'twitter', 'reddit'")
-    source: Source = Field(..., description="Source information")
-    original_url: HttpUrl = Field(..., description="Link to the original article")
-    url: HttpUrl = Field(..., description="Link to the Cryptopanic-hosted article")
+    source: Source | None = Field(None, description="Source information")
+    original_url: HttpUrl | None = Field(None, description="Link to the original article")
+    url: HttpUrl | None = Field(None, description="Link to the Cryptopanic-hosted article")
     image: HttpUrl | None = Field(None, description="URL of the cover image")
     instruments: list[Instrument] = Field(
         default_factory=list, description="List of instruments mentioned"
