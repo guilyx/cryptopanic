@@ -1,6 +1,5 @@
 """Tests for exception classes."""
 
-
 from cryptopanic.exceptions import (
     CryptoPanicAPIError,
     CryptoPanicAuthenticationError,

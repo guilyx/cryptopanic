@@ -1,8 +1,8 @@
 # cryptopanic
 
-[![CI](https://github.com/guilyx/cryptopanic/actions/workflows/ci.yml/badge.svg)](https://github.com/guilyx/cryptopanic/actions/workflows/ci.yml)
+[![Unit Tests](https://github.com/guilyx/cryptopanic/actions/workflows/ci.yml/badge.svg)](https://github.com/guilyx/cryptopanic/actions/workflows/ci.yml)
 [![Integration Tests](https://github.com/guilyx/cryptopanic/actions/workflows/integration.yml/badge.svg)](https://github.com/guilyx/cryptopanic/actions/workflows/integration.yml)
-[![codecov](https://codecov.io/gh/guilyx/cryptopanic/branch/main/graph/badge.svg)](https://codecov.io/gh/guilyx/cryptopanic)
+[![Coverage](https://codecov.io/gh/guilyx/cryptopanic/branch/main/graph/badge.svg)](https://codecov.io/gh/guilyx/cryptopanic)
 [![PyPI version](https://badge.fury.io/py/cryptopanic.svg)](https://badge.fury.io/py/cryptopanic)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
