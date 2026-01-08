@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cryptopanic"
-version = "0.1.0"
+version = "0.1.0rc1"
 description = "A Python client library for the CryptoPanic API"
 readme = "README.md"
 requires-python = ">=3.8"

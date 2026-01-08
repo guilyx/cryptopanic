@@ -7,17 +7,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+---
+
+## [0.1.0rc1] - 2026-01-08
+
 ### Added
-- Features and changes that will be included in the next release
+- PyPI publishing workflow with automated release process
+- GitHub Actions workflow for publishing on releases
+- PyPI trusted publishing support with environment protection
+- Release candidate and release process documentation
+- Integration tests with environment variable support
+- Codecov integration for coverage reporting
 
 ### Changed
-- Changes to existing functionality
+- Updated models to handle optional API response fields
+- Consolidated publishing documentation into README
+- Improved CHANGELOG structure following Keep a Changelog format
 
 ### Fixed
-- Bug fixes
-
-### Security
-- Security improvements
+- Fixed Pydantic validation errors for optional fields (source, url, description)
+- Fixed datetime import in client for runtime usage
+- Fixed type checking configuration for Python 3.10+
 
 ---
 
@@ -43,5 +53,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Pre-commit hooks for code quality
 - Documentation with examples
 
-[Unreleased]: https://github.com/guilyx/cryptopanic/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/guilyx/cryptopanic/compare/v0.1.0rc1...HEAD
+[0.1.0rc1]: https://github.com/guilyx/cryptopanic/compare/v0.1.0...v0.1.0rc1
 [0.1.0]: https://github.com/guilyx/cryptopanic/releases/tag/v0.1.0
