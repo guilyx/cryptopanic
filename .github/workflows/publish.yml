@@ -2,17 +2,12 @@ name: Publish to PyPI
 
 on:
   release:
-    types: [published]
-  workflow_dispatch:
-    inputs:
-      tag:
-        description: 'Release tag (e.g., v0.1.0)'
-        required: true
-        type: string
+    types: [published, edited]
   # Note: We use GitHub Releases instead of direct tag pushes for:
   # - Better visibility and release notes
   # - More intentional publishing (less accidental)
   # - Better control with environment protection rules
+  # 'edited' type allows re-running by editing the release
   # If you need tag-only publishing, uncomment below:
   # push:
   #   tags:
@@ -41,10 +36,9 @@ jobs:
       - name: Extract version from release tag
         id: tag_version
         env:
-          TAG_NAME: ${{ github.event.release.tag_name || github.event.inputs.tag }}
+          TAG_NAME: ${{ github.event.release.tag_name }}
         run: |
           # GitHub releases provide the tag in github.event.release.tag_name
-          # Manual dispatch uses github.event.inputs.tag
           # Remove 'v' prefix if present
           if [[ "$TAG_NAME" == v* ]]; then
             VERSION=${TAG_NAME#v}
@@ -82,11 +76,7 @@ jobs:
       - name: Check if pre-release
         id: check_prerelease
         run: |
-          # For manual dispatch, always publish (assume final release)
-          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
-            echo "skip=false" >> $GITHUB_OUTPUT
-            echo "✓ Manual dispatch - will publish to PyPI"
-          elif [ "${{ github.event.release.prerelease }}" == "true" ]; then
+          if [ "${{ github.event.release.prerelease }}" == "true" ]; then
             echo "skip=true" >> $GITHUB_OUTPUT
             echo "⚠️  Pre-release detected - skipping PyPI publish"
           else
