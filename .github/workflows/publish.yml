@@ -69,7 +69,19 @@ jobs:
       - name: Check package
         run: twine check dist/*
 
+      - name: Check if pre-release
+        id: check_prerelease
+        run: |
+          if [ "${{ github.event.release.prerelease }}" == "true" ]; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+            echo "⚠️  Pre-release detected - skipping PyPI publish"
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
+            echo "✓ Final release - will publish to PyPI"
+          fi
+
       - name: Publish to PyPI
+        if: steps.check_prerelease.outputs.skip == 'false'
         # Option 1: PyPI Trusted Publishing (Recommended)
         # Configure at: https://pypi.org/manage/account/publishing/
         # Add your repository URL and workflow name

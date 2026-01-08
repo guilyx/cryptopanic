@@ -2,7 +2,7 @@
 
 [![Unit Tests](https://github.com/guilyx/cryptopanic/actions/workflows/ci.yml/badge.svg)](https://github.com/guilyx/cryptopanic/actions/workflows/ci.yml)
 [![Integration Tests](https://github.com/guilyx/cryptopanic/actions/workflows/integration.yml/badge.svg)](https://github.com/guilyx/cryptopanic/actions/workflows/integration.yml)
-[![Coverage](https://codecov.io/gh/guilyx/cryptopanic/branch/main/graph/badge.svg)](https://codecov.io/gh/guilyx/cryptopanic)
+[![codecov](https://codecov.io/gh/guilyx/cryptopanic/graph/badge.svg?token=KVI712MWFJ)](https://codecov.io/gh/guilyx/cryptopanic)
 [![PyPI version](https://badge.fury.io/py/cryptopanic.svg)](https://badge.fury.io/py/cryptopanic)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -377,7 +377,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
    git tag v0.2.0rc1
    git push origin master --tags
    ```
-4. **Release**: After testing, create final release:
+   - **Optional**: Create a GitHub Release marked as "pre-release" for testing (won't publish to PyPI)
+   - **Test**: Install and test the release candidate: `pip install cryptopanic==0.2.0rc1`
+4. **Final Release**: After testing passes, create final release:
    ```bash
    # Update version in pyproject.toml (e.g., 0.2.0)
    git add pyproject.toml CHANGELOG.md
@@ -386,7 +388,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
    git push origin master --tags
    ```
 5. **GitHub Release**: Create a GitHub Release with the tag (via UI or `gh release create v0.2.0`)
-6. **Auto-publish**: Workflow automatically publishes to PyPI
+6. **Auto-publish**: Workflow automatically publishes final releases to PyPI (pre-releases are skipped)
 
 ### Setup (One-time)
 
