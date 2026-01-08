@@ -363,17 +363,47 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [CryptoPanic](https://cryptopanic.com/) for providing the API
 - All contributors who help improve this library
 
+## Release Process
+
+### Development Flow
+
+1. **Feature Development**: Work happens on feature branches
+2. **Merge to Master**: Features are merged to `master` after review
+3. **Release Candidates**: When enough features accumulate (typically 3-5), create a release candidate:
+   ```bash
+   # Update version in pyproject.toml (e.g., 0.2.0rc1)
+   git add pyproject.toml CHANGELOG.md
+   git commit -m "chore: prepare release 0.2.0rc1"
+   git tag v0.2.0rc1
+   git push origin master --tags
+   ```
+4. **Release**: After testing, create final release:
+   ```bash
+   # Update version in pyproject.toml (e.g., 0.2.0)
+   git add pyproject.toml CHANGELOG.md
+   git commit -m "chore: release 0.2.0"
+   git tag v0.2.0
+   git push origin master --tags
+   ```
+5. **GitHub Release**: Create a GitHub Release with the tag (via UI or `gh release create v0.2.0`)
+6. **Auto-publish**: Workflow automatically publishes to PyPI
+
+### Setup (One-time)
+
+**PyPI Trusted Publishing:**
+1. Create GitHub Environment: Settings → Environments → New (`pypi`)
+2. Configure at https://pypi.org/manage/account/publishing/:
+   - Project: `cryptopanic`
+   - Workflow: `publish.yml`
+   - Environment: `pypi`
+   - Repository: `guilyx/cryptopanic`
+
+**Version Format:** Follow [Semantic Versioning](https://semver.org/) (MAJOR.MINOR.PATCH)
+
 ## Support
 
 For issues, questions, or contributions, please open an issue on [GitHub](https://github.com/guilyx/cryptopanic/issues).
 
 ## Changelog
 
-### 0.1.0 (2024-01-XX)
-
-- Initial release
-- Support for posts endpoint
-- Support for portfolio endpoint
-- Comprehensive error handling
-- Full type hints and Pydantic models
-- Complete test coverage
+See [CHANGELOG.md](CHANGELOG.md) for detailed release notes.
