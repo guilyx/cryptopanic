@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.0rc2] - 2026-01-08
+
+### Fixed
+- Fixed version extraction in publish workflow
+- Fixed release event handling for re-running workflows
+
+---
+
 ## [0.1.0] - 2026-01-08
 
 ### Added
@@ -45,5 +53,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed datetime import in client for runtime usage
 - Fixed type checking configuration for Python 3.10+
 
-[Unreleased]: https://github.com/guilyx/cryptopanic/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/guilyx/cryptopanic/compare/v0.1.0rc2...HEAD
+[0.1.0rc2]: https://github.com/guilyx/cryptopanic/compare/v0.1.0...v0.1.0rc2
 [0.1.0]: https://github.com/guilyx/cryptopanic/releases/tag/v0.1.0
