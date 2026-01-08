@@ -34,15 +34,18 @@ jobs:
 
       - name: Extract version from release tag
         id: tag_version
+        env:
+          TAG_NAME: ${{ github.event.release.tag_name }}
         run: |
           # GitHub releases provide the tag in github.event.release.tag_name
           # Remove 'v' prefix if present
-          if [[ "${{ github.event.release.tag_name }}" == v* ]]; then
-            VERSION=${GITHUB_EVENT_RELEASE_TAG_NAME#v}
+          if [[ "$TAG_NAME" == v* ]]; then
+            VERSION=${TAG_NAME#v}
           else
-            VERSION="${{ github.event.release.tag_name }}"
+            VERSION="$TAG_NAME"
           fi
           echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Release tag: $TAG_NAME"
           echo "Release version: $VERSION"
 
       - name: Verify version matches pyproject.toml
